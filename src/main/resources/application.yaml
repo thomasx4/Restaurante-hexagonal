@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: hexagonal
+
+datasource:
+  url: jdbc:mysql://localhost:3306/restaurante_hexagonal
+  username: root
+  password: 
+  driver-class-name: com.mysql.cj.jdbc.Driver
+
+jpa:
+  hibernate:
+    ddl-auto: update
+  show-sql: true
+  properties:
+    hibernate:
+      format_sql: true
+  database-platform: org.hibernate.dialect.MySQL8Dialect
+
+jackson:
+  serialization:
+    indent-output: true
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+
+server:
+  port: 9090
