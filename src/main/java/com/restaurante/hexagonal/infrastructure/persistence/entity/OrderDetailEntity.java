@@ -1,7 +1,5 @@
 package com.restaurante.hexagonal.infrastructure.persistence.entity;
 
-import com.restaurante.hexagonal.domain.model.Order;
-import com.restaurante.hexagonal.domain.model.Product;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,29 +21,28 @@ import lombok.NoArgsConstructor;
 public class OrderDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "order_id", nullable = false)
-    private Long order_id;
+    private Long orderId;
 
     @Column(name = "product_id", nullable = false)
-    private Long product_id;
+    private Long productId;
 
     @Column(name = "quantity")
     private Integer quantity;
 
     @Column(name = "unit_price")
-    private Float unit_price;
+    private Float unitPrice;
 
     @Column(name = "subtotal")
     private Float subtotal;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @JoinColumn(name = "order_id", insertable = false, updatable = false)
+    private OrderEntity order;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
+    private ProductEntity product;
 }
