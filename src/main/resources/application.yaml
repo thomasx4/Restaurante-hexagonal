@@ -1,21 +1,19 @@
 spring:
   application:
     name: hexagonal
-
-datasource:
-  url: jdbc:mysql://localhost:3306/restaurante_hexagonal
-  username: root
-  password: 
-  driver-class-name: com.mysql.cj.jdbc.Driver
-
-jpa:
-  hibernate:
-    ddl-auto: update
-  show-sql: true
-  properties:
+  datasource:
+    url: jdbc:mysql://switchback.proxy.rlwy.net:44202/railway
+    username: root
+    password: nBLLizpayUQIqoRyVmBBTHXDsBfufbHz
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
     hibernate:
-      format_sql: true
-  database-platform: org.hibernate.dialect.MySQL8Dialect
+      ddl-auto: update
+    show-sql: true
+    # ELIMINAMOS la linea de database-platform para que Hibernate lo detecte solo
+    properties:
+      hibernate:
+        format_sql: true
 
 jackson:
   serialization:
@@ -27,4 +25,4 @@ logging:
     org.hibernate.SQL: DEBUG
 
 server:
-  port: 9090
+  port: 9091
