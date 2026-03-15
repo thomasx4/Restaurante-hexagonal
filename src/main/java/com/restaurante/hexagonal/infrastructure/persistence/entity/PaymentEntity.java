@@ -1,6 +1,6 @@
 package com.restaurante.hexagonal.infrastructure.persistence.entity;
 
-import com.restaurante.hexagonal.domain.model.Order;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,25 +22,24 @@ import lombok.NoArgsConstructor;
 public class PaymentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "order_id", nullable = false)
-    private Long order_id;
+    private Long orderId;
 
     @Column(name = "amount")
     private Float amount;
 
     @Column(name = "payment_method")
-    private String payment_method;
+    private String paymentMethod;
 
     @Column(name = "payment_date")
-    private Long payment_date;
+    private LocalDate paymentDate;
 
     @Column(name = "reference")
     private String reference;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @JoinColumn(name = "order_id", insertable = false, updatable = false)
+    private OrderEntity order;
 }

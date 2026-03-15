@@ -8,12 +8,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
-    # ELIMINAMOS la linea de database-platform para que Hibernate lo detecte solo
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.MySQLDialect
 
 jackson:
   serialization:
@@ -23,6 +24,7 @@ logging:
   level:
     org.springframework: INFO
     org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
 
 server:
   port: 9091
