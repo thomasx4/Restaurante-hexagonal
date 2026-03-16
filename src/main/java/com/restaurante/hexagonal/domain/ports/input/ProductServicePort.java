@@ -14,4 +14,5 @@ public interface ProductServicePort {
     List<Product> getAvailableProducts();
     List<Product> getProductsByCategory(Long categoryId);
     void updateAvailability(Long id, boolean available);
+    Product patchProduct(Long id, Product product);
 }
