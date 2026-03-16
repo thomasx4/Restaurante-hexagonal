@@ -73,7 +73,7 @@ public class CategoryController {
         
         try {
             Category updatedCategory = categoryService.updateCategory(id, category);
-            rzzeturn ResponseEntity.ok(mapToResponse(updatedCategory));
+            return ResponseEntity.ok(mapToResponse(updatedCategory));
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
