@@ -120,8 +120,30 @@ public class ProductService implements ProductServicePort {
     }
 
     @Override
+    @Transactional
     public Product patchProduct(Long id, Product product) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'patchProduct'");
+        Product existingProduct = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado con id: " + id));
+
+        // Actualizar solo campos presentes (no nulos)
+        if (product.getName() != null) {
+            existingProduct.setName(product.getName());
+        }
+        if (product.getDescription() != null) {
+            existingProduct.setDescription(product.getDescription());
+        }
+        if (product.getPrice() != null) {
+            existingProduct.setPrice(product.getPrice());
+        }
+        if (product.getCategoryId() != null) {
+            existingProduct.setCategoryId(product.getCategoryId());
+        }
+        if (product.getAvailable() != null) {
+            existingProduct.setAvailable(product.getAvailable());
+        }
+
+        validateProduct(existingProduct);
+
+        return productRepository.save(existingProduct);
     }
 }

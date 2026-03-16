@@ -20,7 +20,7 @@ public class ProductMapper {
         entity.setId(domain.getId());
         entity.setName(domain.getName());
         entity.setDescription(domain.getDescription());
-        entity.setPrice(domain.getPrice() != null ? domain.getPrice().floatValue() : null);
+        entity.setPrice(domain.getPrice());
         entity.setAvailable(domain.getAvailable());
         
         // Mapear la categoría si existe
