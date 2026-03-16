@@ -118,4 +118,10 @@ public class ProductService implements ProductServicePort {
             throw new IllegalArgumentException("El precio es obligatorio");
         }
     }
+
+    @Override
+    public Product patchProduct(Long id, Product product) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'patchProduct'");
+    }
 }

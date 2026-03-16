@@ -16,7 +16,6 @@ import com.restaurante.hexagonal.application.dto.ProductRequestDTO;
 import com.restaurante.hexagonal.application.dto.ProductResponseDTO;
 import com.restaurante.hexagonal.domain.model.Product;
 import com.restaurante.hexagonal.domain.ports.input.ProductServicePort;
-import com.restaurante.hexagonal.application.service.ProductService;
 
 @RestController
 @RequestMapping("/products")
