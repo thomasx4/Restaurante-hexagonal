@@ -60,9 +60,6 @@ public class ProductService implements ProductServicePort {
             throw new RuntimeException("Producto no encontrado con id: " + id);
         }
         
-        // Aquí podrías agregar validaciones adicionales
-        // Por ejemplo: verificar que no hay pedidos pendientes con este producto
-        
         productRepository.deleteById(id);
     }
 
