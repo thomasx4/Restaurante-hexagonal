@@ -5,10 +5,12 @@ import java.time.LocalDate;
 
 @Data
 public class Payment {
+
     private Long id;
-    private Long order_id;
-    private Float amount;
-    private String payment_method;
-    private LocalDate payment_date;
+    private Long orderId;
+    private Double amount;
+    private String paymentMethod;
+    private LocalDate paymentDate;
     private String status;
+    
 }
